@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop/Computer Information Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            position: relative; /* Set relative positioning to use the pseudo-element */
+            overflow: auto; /* Hide any overflow due to pseudo-element */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Pseudo-element for background image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('static/well.jpeg') no-repeat center center;
+            background-size: cover;
+            filter: blur(8px); /* Adjust the blur intensity */
+            z-index: -1; /* Make sure it’s behind the form container */
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for better readability */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            position: relative; /* Ensure the form container is on top */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333333;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444444;
+            font-size: 1em;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #007bff;
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            background-color: #004080;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Laptop/Computer Information Form</h1>
+        <form action="/submit_form" method="post">
+            <div class="form-group">
+                <label for="screenSize">Screen Size (Inches):</label>
+                <input type="text" id="screenSize" name="screenSize">
+            </div>
+            <div class="form-group">
+                <label for="ram">RAM (GB):</label>
+                <input type="text" id="ram" name="ram">
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="text" id="weight" name="weight">
+            </div>
+            <div class="form-group">
+                <label for="processorSpeed">Processor Speed (GHz):</label>
+                <input type="text" id="processorSpeed" name="processorSpeed">
+            </div>
+            <div class="form-group">
+                <label for="width">Width (inches):</label>
+                <input type="text" id="width" name="width">
+            </div>
+            <div class="form-group">
+                <label for="height">Height (inches):</label>
+                <input type="text" id="height" name="height">
+            </div>
+            <div class="form-group">
+                <label for="storageCapacity">Storage Capacity (GB):</label>
+                <input type="text" id="storageCapacity" name="storageCapacity">
+            </div>
+            <div class="form-group">
+                <label for="gpuCode">GPU Numeric Code:</label>
+                <input type="text" id="gpuCode" name="gpuCode">
+            </div>
+            <div class="form-group">
+                <label for="company">Company:</label>
+                <select id="company" name="company">
+                    <option value="">Select Company</option>
+                    <option value="Acer">Acer</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Chuwi">Chuwi</option>
+                    <option value="Dell">Dell</option>
+                    <option value="Fujitsu">Fujitsu</option>
+                    <option value="Google">Google</option>
+                    <option value="HP">HP</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="LG">LG</option>
+                    <option value="Lenovo">Lenovo</option>
+                    <option value="MSI">MSI</option>
+                    <option value="Mediacom">Mediacom</option>
+                    <option value="Microsoft">Microsoft</option>
+                    <option value="Razer">Razer</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Toshiba">Toshiba</option>
+                    <option value="Vero">Vero</option>
+                    <option value="Xiaomi">Xiaomi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    <option value="">Select Type</option>
+                    <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Netbook">Netbook</option>
+                    <option value="Notebook">Notebook</option>
+                    <option value="Ultrabook">Ultrabook</option>
+                    <option value="Workstation">Workstation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="os">Operating System:</label>
+                <select id="os" name="os">
+                    <option value="">Select Operating System</option>
+                    <option value="Android">Android</option>
+                    <option value="Chrome OS">Chrome OS</option>
+                    <option value="Linux">Linux</option>
+                    <option value="Mac OS X">Mac OS X</option>
+                    <option value="No OS">No OS</option>
+                    <option value="Windows 10">Windows 10</option>
+                    <option value="Windows 10 S">Windows 10 S</option>
+                    <option value="Windows 7">Windows 7</option>
+                    <option value="macOS">macOS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="generation">Processor Generation:</label>
+                <select id="generation" name="generation">
+                    <option value="">Select Generation</option>
+                    <option value="Generation 1">Generation 1</option>
+                    <option value="Generation 3">Generation 3</option>
+                    <option value="Generation 5">Generation 5</option>
+                    <option value="Generation 7">Generation 7</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="series">Processor Series:</label>
+                <select id="series" name="series">
+                    <option value="">Select Series</option>
+                    <option value="Series 0">Series 0</option>
+                    <option value="Series A10">Series A10</option>
+                    <option value="Series A12">Series A12</option>
+                    <option value="Series A4">Series A4</option>
+                    <option value="Series A6">Series A6</option>
+                    <option value="Series A72">Series A72</option>
+                    <option value="Series A8">Series A8</option>
+                    <option value="Series A9">Series A9</option>
+                </select>
+            </div>
+            <button type="submit">Submit Form</button>
+        </form>
+    </div>
+</body>
+</html>
